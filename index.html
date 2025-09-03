@@ -9,35 +9,33 @@
       font-family: 'Arial', sans-serif;
       margin: 0;
       padding: 0;
-      background-color: #f9f7f4;
+      background-color: #f5f3ef; /* mjukare neutral bakgrund */
       color: #333;
     }
 
     header {
       background-color: #e3e0d9;
-      padding: 1rem 2rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
+      padding: 1.5rem;
+      text-align: center;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
     }
 
-    header img {
-      max-width: 120px;
+    header img.logo {
+      max-width: 180px;
+      height: auto;
     }
 
-    header h1 {
-      margin: 0;
-      font-size: 1.8rem;
-      color: #4b5e3c;
+    nav {
+      margin-top: 1rem;
     }
 
     nav ul {
       list-style: none;
-      display: flex;
-      gap: 1.5rem;
-      margin: 0;
       padding: 0;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
     }
 
     nav a {
@@ -47,28 +45,24 @@
       transition: color 0.3s;
     }
 
-    nav a:hover {
+    nav a:hover, nav a.active {
       color: #4b5e3c;
     }
 
     main {
-      max-width: 900px;
+      max-width: 1000px;
       margin: 2rem auto;
       padding: 0 1rem;
+      animation: fadeIn 0.6s ease-in-out;
     }
 
     section {
       display: none;
-      margin-bottom: 3rem;
-      opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 0.6s ease, transform 0.6s ease;
     }
 
     section.active {
       display: block;
-      opacity: 1;
-      transform: translateY(0);
+      animation: fadeIn 0.6s ease-in-out;
     }
 
     h2 {
@@ -91,12 +85,12 @@
       box-shadow: 0 2px 8px rgba(0,0,0,0.1);
       width: 260px;
       text-align: center;
-      transition: transform 0.3s, box-shadow 0.3s;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
     .product:hover {
       transform: translateY(-5px);
-      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      box-shadow: 0 4px 16px rgba(0,0,0,0.15);
     }
 
     .product img {
@@ -116,76 +110,70 @@
       text-decoration: none;
       border-radius: 5px;
       font-weight: bold;
-      transition: background-color 0.3s, transform 0.2s;
-    }
-
-    .button:hover {
-      background-color: #3a492f;
-      transform: scale(1.05);
     }
 
     footer {
       background: #e3e0d9;
       text-align: center;
       padding: 1rem;
+      margin-top: 3rem;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
     }
   </style>
 </head>
 <body>
 
 <header>
-  <div style="display: flex; align-items: center; gap: 1rem;">
-    <img src="https://via.placeholder.com/150x80?text=Mitt+Bambu" alt="Mitt Bambu Logga">
-    <h1>Mitt Bambu</h1>
-  </div>
+  <!-- Din logga -->
+  <img src="images/logo.png" alt="Mitt Bambu Logga" class="logo">
   <nav>
     <ul>
-      <li><a href="#hem" onclick="showPage('hem')">Hem</a></li>
-      <li><a href="#omoss" onclick="showPage('omoss')">Om oss</a></li>
-      <li><a href="#varfor" onclick="showPage('varfor')">Varför bambu?</a></li>
-      <li><a href="#produkter" onclick="showPage('produkter')">Produkter</a></li>
-      <li><a href="#jobb" onclick="showPage('jobb')">Erbjuder jobb</a></li>
+      <li><a href="#" class="active" onclick="showPage('home')">Hem</a></li>
+      <li><a href="#" onclick="showPage('about')">Om oss</a></li>
+      <li><a href="#" onclick="showPage('bamboo')">Varför bambu?</a></li>
+      <li><a href="#" onclick="showPage('products')">Produkter</a></li>
+      <li><a href="#" onclick="showPage('jobs')">Erbjuder jobb</a></li>
     </ul>
   </nav>
 </header>
 
 <main>
-  <section id="hem" class="active">
+  <section id="home" class="active">
     <h2>Välkommen till Mitt Bambu</h2>
-    <p>Vi skapar hållbara produkter för vardagen med fokus på kvalitet, komfort och design. Lär känna oss, upptäck varför bambu är framtidens material och se våra produkter.</p>
+    <p>Vi skapar hållbara vardagsprodukter av bambu – framtidens material.</p>
   </section>
 
-  <section id="omoss">
+  <section id="about">
     <h2>Om oss</h2>
     <p>
-      Mitt Bambu är ett svenskt varumärke som skapar hållbara produkter för vardagen med fokus på kvalitet, komfort och tidlös design. Våra produkter – som “MIN strumpa” och “MIN kasse” – är mer än bara föremål; de är ett statement om ägande, värde och relation till produkten.
+      Mitt Bambu är ett svenskt varumärke som skapar hållbara produkter för vardagen
+      med fokus på kvalitet, komfort och tidlös design. Våra produkter är mer än bara föremål;
+      de är ett statement om ägande, värde och relation till produkten.
     </p>
     <p>
-      Vårt mål är att förändra synen på konsumtion. När våra produkter känns som "mina" används de längre, älskas mer och bidrar till ett mer hållbart samhälle.
+      Genom att använda miljövänliga material och samarbeta med noggrant utvalda producenter
+      säkerställer vi både låg miljöpåverkan och lång livslängd.
     </p>
   </section>
 
-  <section id="varfor">
+  <section id="bamboo">
     <h2>Varför bambu?</h2>
     <p>
-      Bambu är framtidens material. Det är miljövänligt, kräver ingen konstbevattning och växer snabbt utan bekämpningsmedel. Bambu absorberar även mer koldioxid än många andra växter, vilket gör det till ett klimatsmart val.
-    </p>
-    <h3>Naturliga egenskaper</h3>
-    <ul>
-      <li>Hypoallergen – skonsam för känslig hud.</li>
-      <li>Naturligt antibakteriell – plaggen håller sig fräscha längre.</li>
-      <li>Andningsbart och temperaturreglerande material.</li>
-    </ul>
-    <h3>Vattenbehov</h3>
-    <p>
-      En bomullströja kan kräva upp till <strong>2700 liter vatten</strong> att producera. Bambu växer främst på regnvatten och kräver därför nästan ingen extra bevattning. Det gör att vi sparar enorma mängder vatten per plagg.
+      Bambu är ett av världens mest hållbara material. Det växer extremt snabbt och kräver
+      minimalt med vatten och inga bekämpningsmedel. Jämfört med bomull kan ett plagg av
+      bambu spara upp till 70% vatten i produktionen.
     </p>
     <p>
-      Genom att välja bambu minskar vi vår miljöpåverkan och skapar hållbara lösningar för framtiden.
+      Dess naturliga egenskaper gör bambu perfekt för textilier: antibakteriell, mjuk mot huden,
+      temperaturreglerande och biologiskt nedbrytbar. Vi tror att bambu är framtidens material.
     </p>
   </section>
 
-  <section id="produkter">
+  <section id="products">
     <h2>Våra produkter</h2>
     <div class="products">
       <div class="product">
@@ -203,13 +191,11 @@
     </div>
   </section>
 
-  <section id="jobb">
+  <section id="jobs">
     <h2>Erbjuder jobb</h2>
     <p>
-      Vi söker drivna ungdomar som vill utvecklas inom sälj. Hos oss får du chansen att arbeta med dörrförsäljning av hållbara produkter och samtidigt bidra till en grönare framtid.
-    </p>
-    <p>
-      Är du social, ambitiös och vill växa både personligt och professionellt? Då är Mitt Bambu rätt plats för dig.
+      Vi söker drivna ungdomar som vill utvecklas inom försäljning. Hos oss får du möjlighet
+      att arbeta med dörrförsäljning, växa som person och samtidigt bidra till ett mer hållbart samhälle.
     </p>
   </section>
 </main>
@@ -220,12 +206,15 @@
 
 <script>
   function showPage(pageId) {
-    const sections = document.querySelectorAll('main section');
-    sections.forEach(section => {
-      section.classList.remove('active');
+    document.querySelectorAll("main section").forEach(section => {
+      section.classList.remove("active");
     });
-    const target = document.getElementById(pageId);
-    target.classList.add('active');
+    document.getElementById(pageId).classList.add("active");
+
+    document.querySelectorAll("nav a").forEach(link => {
+      link.classList.remove("active");
+    });
+    event.target.classList.add("active");
   }
 </script>
 
